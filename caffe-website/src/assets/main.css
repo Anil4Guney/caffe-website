@@ -1,0 +1,17 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+/* Genel Yazı Tipi Ayarı */
+body {
+    font-family: 'Inter', sans-serif, system-ui;
+    background-color: #ffffff;
+    margin: 0;
+    padding: 0;
+}
+
+/* Kartların üzerine gelince efekt */
+.card-hover:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+}
