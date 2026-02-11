@@ -36,21 +36,21 @@
         <p class="text-center text-gray-500">BrewMaster Coffee Co.</p>
     </footer>
 
-    <Dialog v-model:visible="visibleAuth" modal :header="isRegister ? 'Kayıt Ol' : 'Giriş Yap'" :style="{ width: '25rem' }">
+    <Dialog v-model:visible="visibleAuth" modal :header="isRegister ? 'Sign up' : 'Login'" :style="{ width: '25rem' }">
       <div class="flex flex-col gap-4">
         
         <div v-if="isRegister">
-            <label class="text-sm font-bold">Ad Soyad</label>
-            <InputText v-model="form.name" class="w-full" placeholder="Örn: Ahmet Yılmaz" />
+            <label class="text-sm font-bold">Name Surname</label>
+            <InputText v-model="form.name" class="w-full" placeholder="Example: Ahmet Yılmaz" />
         </div>
         
         <div>
-            <label class="text-sm font-bold">E-Posta</label>
-            <InputText v-model="form.email" class="w-full" placeholder="mail@ornek.com" />
+            <label class="text-sm font-bold">Email</label>
+            <InputText v-model="form.email" class="w-full" placeholder="email@gmail.com" />
         </div>
         
         <div>
-            <label class="text-sm font-bold">Şifre</label>
+            <label class="text-sm font-bold">Password</label>
             <InputText v-model="form.password" type="password" class="w-full" placeholder="******" />
         </div>
         
@@ -58,20 +58,20 @@
             {{ errorMessage }}
         </div>
 
-        <Button :label="isRegister ? 'Kayıt Ol' : 'Giriş Yap'" class="w-full bg-[#A15D39] border-none" @click="submitAuth" />
+        <Button :label="isRegister ? 'Sign up' : 'Login'" class="w-full bg-[#A15D39] border-none" @click="submitAuth" />
         
         <p class="text-center text-sm cursor-pointer text-gray-500 hover:text-[#A15D39]" @click="toggleMode">
-            {{ isRegister ? 'Zaten hesabın var mı? Giriş Yap' : "Hesabın yok mu? Kayıt Ol" }}
+            {{ isRegister ? 'Do you already have an account? Login' : "Don't have an account? Sign up" }}
         </p>
       </div>
     </Dialog>
 
     <Sidebar v-model:visible="visibleCart" position="right" class="w-full md:w-[25rem]">
-      <h2 class="text-2xl font-bold mb-6">Sepetim</h2>
+      <h2 class="text-2xl font-bold mb-6">My shopping cart</h2>
       
       <div v-if="store.cart.length === 0" class="text-center text-gray-500 mt-10">
         <i class="pi pi-shopping-cart text-4xl mb-2 opacity-30"></i>
-        <p>Sepetiniz şu an boş.</p>
+        <p>Your shopping cart is currently empty.</p>
       </div>
 
       <div v-else>
@@ -89,10 +89,10 @@
 
         <div class="mt-4 pt-4 border-t">
             <div class="flex justify-between items-center text-xl font-bold mb-4">
-                <span>Toplam:</span>
+                <span>Total:</span>
                 <span class="text-[#A15D39]">{{ store.cartTotal }} $</span>
             </div>
-            <Button label="Ödemeye Geç" class="w-full bg-[#1A1A1A] border-none" />
+            <Button label="Proceed to Payment" class="w-full bg-[#1A1A1A] border-none" />
         </div>
       </div>
     </Sidebar>
@@ -122,7 +122,7 @@ const toggleMode = () => {
 
 const handleUserIconClick = () => {
     if (store.user) {
-        if (confirm(`${store.user.name}, çıkış yapmak istiyor musun?`)) {
+        if (confirm(`${store.user.name}, Do you want to log out?`)) {
             store.logout();
             window.location.reload(); 
         }
@@ -136,12 +136,12 @@ const submitAuth = () => {
     errorMessage.value = '';
 
     if (!form.email || !form.password) {
-        errorMessage.value = "Lütfen tüm alanları doldurun.";
+        errorMessage.value = "Please fill in all fields.";
         return;
     }
 
     if (isRegister.value) {
-        if (!form.name) { errorMessage.value = "İsim alanı zorunludur."; return; }
+        if (!form.name) { errorMessage.value = "The name field is required."; return; }
         
         const res = store.register(form.name, form.email, form.password);
         if (res.success) {
