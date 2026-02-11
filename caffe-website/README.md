@@ -1,38 +1,36 @@
-# caffe-website
+Project Report 
 
-This template should help get you started developing with Vue 3 in Vite.
+ -Project Summary
 
-## Recommended IDE Setup
+I developed this project using Vue.js 3 and Vite infrastructure. My goal was to create an interactive Single Page Application (SPA) where users can explore coffee varieties, browse equipment, and shop using a cart system.
 
-[VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+-Technologies Used
 
-## Recommended Browser Setup
+Vue.js 3 (Composition API): Used to build the core framework and provide reactive structure.
 
-- Chromium-based browsers (Chrome, Edge, Brave, etc.):
-  - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd) 
-  - [Turn on Custom Object Formatter in Chrome DevTools](http://bit.ly/object-formatters)
-- Firefox:
-  - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
-  - [Turn on Custom Object Formatter in Firefox DevTools](https://fxdx.dev/firefox-devtools-custom-object-formatters/)
+Vite: Chosen for its fast development process and optimized build performance.
 
-## Customize configuration
+Tailwind CSS: Used to create a responsive and modern design.
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+PrimeVue & PrimeIcons: Enriched the user experience with ready-to-use UI components (Dialog, Sidebar, Card) and icons.
 
-## Project Setup
+Vue Router: Enabled fast and seamless page transitions (Home, Collection, Contact, etc.) without reloading.
 
-```sh
-npm install
-```
+-Features Developed
 
-### Compile and Hot-Reload for Development
+User Management (Auth):
 
-```sh
-npm run dev
-```
+Visitors can register and log in.
 
-### Compile and Minify for Production
+User data is stored in localStorage to keep the session active even after page refreshes.
 
-```sh
-npm run build
-```
+Shopping Cart System:
+
+Users can add items to the cart, remove them, and view the total price.
+
+Note: I implemented a rule requiring users to log in before adding items to the cart. The system alerts the user if they are not logged in.
+
+Data Persistence (State Management):
+
+I established centralized data management via src/store.js. Cart and user information are preserved in the browser's storage.
+
