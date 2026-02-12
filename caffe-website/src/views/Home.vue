@@ -74,13 +74,12 @@ const products = ref([
 
 const handleAddToCart = (product) => {
   if (!store.user) {
-    alert("Sepete ürün eklemek için lütfen giriş yapınız! (Sağ üstteki ikon)");
+    alert("Please log in to add to cart!");
     return;
   }
 
   store.addToCart(product);
 
-  alert(`"${product.name}" sepete başarıyla eklendi!`);
 };
 </script>
 
