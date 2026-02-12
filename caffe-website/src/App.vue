@@ -41,7 +41,7 @@
         
         <div v-if="isRegister">
             <label class="text-sm font-bold">Name Surname</label>
-            <InputText v-model="form.name" class="w-full" placeholder="Example: Ahmet Yılmaz" />
+            <InputText v-model="form.name" class="w-full" placeholder="Ahmet Yılmaz" />
         </div>
         
         <div>
